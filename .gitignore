@@ -218,4 +218,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Recorded videos
 /videos
+
+# ROS 2 build
+build/
+install/
+log/
+
+# VSCode
+/.vscode
