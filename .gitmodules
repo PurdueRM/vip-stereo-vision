@@ -1,0 +1,3 @@
+[submodule "src/retinify"]
+	path = src/retinify
+	url = https://github.com/retinify/retinify.git
