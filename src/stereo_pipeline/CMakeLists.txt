@@ -18,6 +18,7 @@ find_package(std_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(message_filters REQUIRED)
+find_package(Threads REQUIRED)
 
 # OpenCV
 find_package(OpenCV REQUIRED)
@@ -36,11 +37,13 @@ add_executable(replay_video_file_input_node
 ament_target_dependencies(replay_video_file_input_node
   rclcpp
   sensor_msgs
+  std_msgs
   cv_bridge
 )
 
 target_link_libraries(replay_video_file_input_node
   ${OpenCV_LIBRARIES}
+  Threads::Threads
 )
 
 # Stereo vision node
@@ -103,5 +106,12 @@ install(
   DIRECTORY launch config
   DESTINATION share/${PROJECT_NAME}
 )
+
+install(
+  DIRECTORY include/
+  DESTINATION include
+)
+
+ament_export_include_directories(include)
 
 ament_package()
